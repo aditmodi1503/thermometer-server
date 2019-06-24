@@ -17,6 +17,6 @@ let upload = multer({ storage });
 
 router.get('/getReadings/:fileName', getReadings);
  
-router.post('/postReadings', upload.single('file'), extractFile, postReadings);
+router.post('/postReadings', upload.single('file'), extractFile, checkJson, postReadings);
 
 export default router;

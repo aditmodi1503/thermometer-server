@@ -35,7 +35,7 @@ export const postReadings = (req, res) => {
                 count++;
                 totalCount++;
                 // console.log(count);
-                if (count == 20000) {
+                if (count == 50000) {
                     console.log(selfChunk.length);
                     count = 0;
                     let obj = {
@@ -66,8 +66,8 @@ export const postReadings = (req, res) => {
                 console.log('totalCount:', totalCount);
                 // res.send({ timeTaken, statusCode: 200, dataCount: count });
                 // process.exit(0);
+                return cb(null);
             })
-            return cb(null);
         }
     ], (err, result) => {
             if (err) console.log(err);
@@ -140,23 +140,13 @@ export const extractFile = async (req, res, next) => {
     console.log('1');
     let rarFile = await new Unrar('uploads/' + req.file.originalname).extract('extracted-json/', null, err => {
         if (err) console.log(err);
-        console.log('2');
-        if (fs.existsSync('/extracted-json/THERM0001.json')) {
-            next();
-        }
-        // else {
-        // }
-        // next();
+        next();
     });
-    // await rarFile.extract('extracted-json/', null, err => {
-    //     if (err) console.log(err);
-    // });
-    
 }
 
 export const checkJson = (req, res, next) => {
     console.log('2');
-    if (fs.existsSync('/extracted-json/THERM0001.json')) {
+    if (fs.existsSync('./extracted-json/THERM0001.json')) {
         next();
     }
     else {
