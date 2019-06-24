@@ -1,12 +1,7 @@
 import mongoose from 'mongoose';
 
 let ThermometerSchema = new mongoose.Schema({
-    reading: [
-        {
-            ts: Number,
-            val: Number
-        }
-    ],
+    reading: [],
     fileName: String,
     IsActive: Boolean,
     CreatedOn: {

@@ -18,10 +18,16 @@
   },
   "homepage": "https://github.com/aditmodi1503/thermometer-server#readme",
   "dependencies": {
+    "JSONStream": "^1.3.5",
+    "async": "^3.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.6.0"
+    "express-fileupload": "^1.1.5",
+    "mongoose": "^5.6.0",
+    "multer": "^1.4.1",
+    "node-unrar": "^0.1.5",
+    "unrar": "^0.1.7"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
